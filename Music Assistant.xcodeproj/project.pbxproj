@@ -8,22 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		409AC9FD21273606006480B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409AC9FC21273606006480B4 /* AppDelegate.swift */; };
-		409AC9FF21273606006480B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409AC9FE21273606006480B4 /* ViewController.swift */; };
 		409ACA0221273606006480B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 409ACA0021273606006480B4 /* Main.storyboard */; };
-		409ACA0521273606006480B4 /* Music_Assistant.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 409ACA0321273606006480B4 /* Music_Assistant.xcdatamodeld */; };
 		409ACA0721273607006480B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 409ACA0621273607006480B4 /* Assets.xcassets */; };
 		409ACA0A21273607006480B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 409ACA0821273607006480B4 /* LaunchScreen.storyboard */; };
+		409ACA1621274E8D006480B4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 409ACA1521274E8D006480B4 /* Default-568h@2x.png */; };
+		409ACA1821275340006480B4 /* SongsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409ACA1721275340006480B4 /* SongsViewController.swift */; };
+		409ACA1A212768B0006480B4 /* AddSongController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409ACA19212768B0006480B4 /* AddSongController.swift */; };
+		409ACA1D212856DC006480B4 /* Music_Assistant.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 409ACA1B212856DC006480B4 /* Music_Assistant.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		409AC9F921273606006480B4 /* Music Assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Music Assistant.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		409AC9FC21273606006480B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		409AC9FE21273606006480B4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		409ACA0121273606006480B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		409ACA0421273606006480B4 /* Music_Assistant.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Music_Assistant.xcdatamodel; sourceTree = "<group>"; };
 		409ACA0621273607006480B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		409ACA0921273607006480B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		409ACA0B21273607006480B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		409ACA1521274E8D006480B4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		409ACA1721275340006480B4 /* SongsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsViewController.swift; sourceTree = "<group>"; };
+		409ACA19212768B0006480B4 /* AddSongController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSongController.swift; sourceTree = "<group>"; };
+		409ACA1C212856DC006480B4 /* Music_Assistant.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Music_Assistant.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +44,7 @@
 		409AC9F021273606006480B4 = {
 			isa = PBXGroup;
 			children = (
+				409ACA1521274E8D006480B4 /* Default-568h@2x.png */,
 				409AC9FB21273606006480B4 /* Music Assistant */,
 				409AC9FA21273606006480B4 /* Products */,
 			);
@@ -57,14 +62,47 @@
 			isa = PBXGroup;
 			children = (
 				409AC9FC21273606006480B4 /* AppDelegate.swift */,
-				409AC9FE21273606006480B4 /* ViewController.swift */,
-				409ACA0021273606006480B4 /* Main.storyboard */,
-				409ACA0621273607006480B4 /* Assets.xcassets */,
-				409ACA0821273607006480B4 /* LaunchScreen.storyboard */,
+				409ACA112127474F006480B4 /* Controllers */,
+				409ACA1221274763006480B4 /* Views */,
+				409ACA1321274770006480B4 /* Data Model */,
+				409ACA142127477A006480B4 /* Supporting Files */,
 				409ACA0B21273607006480B4 /* Info.plist */,
-				409ACA0321273606006480B4 /* Music_Assistant.xcdatamodeld */,
 			);
 			path = "Music Assistant";
+			sourceTree = "<group>";
+		};
+		409ACA112127474F006480B4 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				409ACA19212768B0006480B4 /* AddSongController.swift */,
+				409ACA1721275340006480B4 /* SongsViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		409ACA1221274763006480B4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				409ACA0021273606006480B4 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		409ACA1321274770006480B4 /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				409ACA1B212856DC006480B4 /* Music_Assistant.xcdatamodeld */,
+			);
+			path = "Data Model";
+			sourceTree = "<group>";
+		};
+		409ACA142127477A006480B4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				409ACA0621273607006480B4 /* Assets.xcassets */,
+				409ACA0821273607006480B4 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,6 +164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				409ACA0A21273607006480B4 /* LaunchScreen.storyboard in Resources */,
+				409ACA1621274E8D006480B4 /* Default-568h@2x.png in Resources */,
 				409ACA0721273607006480B4 /* Assets.xcassets in Resources */,
 				409ACA0221273606006480B4 /* Main.storyboard in Resources */,
 			);
@@ -138,8 +177,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				409AC9FF21273606006480B4 /* ViewController.swift in Sources */,
-				409ACA0521273606006480B4 /* Music_Assistant.xcdatamodeld in Sources */,
+				409ACA1821275340006480B4 /* SongsViewController.swift in Sources */,
+				409ACA1A212768B0006480B4 /* AddSongController.swift in Sources */,
+				409ACA1D212856DC006480B4 /* Music_Assistant.xcdatamodeld in Sources */,
 				409AC9FD21273606006480B4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -340,12 +380,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		409ACA0321273606006480B4 /* Music_Assistant.xcdatamodeld */ = {
+		409ACA1B212856DC006480B4 /* Music_Assistant.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				409ACA0421273606006480B4 /* Music_Assistant.xcdatamodel */,
+				409ACA1C212856DC006480B4 /* Music_Assistant.xcdatamodel */,
 			);
-			currentVersion = 409ACA0421273606006480B4 /* Music_Assistant.xcdatamodel */;
+			currentVersion = 409ACA1C212856DC006480B4 /* Music_Assistant.xcdatamodel */;
 			path = Music_Assistant.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
