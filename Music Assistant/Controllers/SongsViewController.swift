@@ -88,7 +88,14 @@ class SongsViewController: UITableViewController, SongAddedDelegate{
         let destinationVc = segue.destination as! ViewSongController
         
         if let indexPath = tableView.indexPathForSelectedRow {
-            destinationVc.selectedSong = songArray[indexPath.row]
+            var songs = [Song]()
+            
+            for song in songArray {
+                if song.parentArtist!.name! == artistArray[indexPath.section].name{
+                    songs.append(song)
+                }
+            }
+            destinationVc.selectedSong = songs[indexPath.row]
         }
     }
     

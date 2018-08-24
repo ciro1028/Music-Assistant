@@ -19,10 +19,14 @@ class ViewSongController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        loadSongIntoView()
         
     }
 
+
     func loadSongIntoView(){
-        
+        titleLabel.text = selectedSong.title
+        artistLabel.text = selectedSong.parentArtist?.name
+        lyricsTextView.text = selectedSong.lyrics
     }
 }
