@@ -15,6 +15,7 @@
 		409ACA1821275340006480B4 /* SongsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409ACA1721275340006480B4 /* SongsViewController.swift */; };
 		409ACA1A212768B0006480B4 /* AddSongController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409ACA19212768B0006480B4 /* AddSongController.swift */; };
 		409ACA1D212856DC006480B4 /* Music_Assistant.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 409ACA1B212856DC006480B4 /* Music_Assistant.xcdatamodeld */; };
+		40F00A74213043A0003F881C /* ViewSongController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F00A73213043A0003F881C /* ViewSongController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		409ACA1721275340006480B4 /* SongsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsViewController.swift; sourceTree = "<group>"; };
 		409ACA19212768B0006480B4 /* AddSongController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSongController.swift; sourceTree = "<group>"; };
 		409ACA1C212856DC006480B4 /* Music_Assistant.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Music_Assistant.xcdatamodel; sourceTree = "<group>"; };
+		40F00A73213043A0003F881C /* ViewSongController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSongController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 			children = (
 				409ACA19212768B0006480B4 /* AddSongController.swift */,
 				409ACA1721275340006480B4 /* SongsViewController.swift */,
+				40F00A73213043A0003F881C /* ViewSongController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 				409ACA1821275340006480B4 /* SongsViewController.swift in Sources */,
 				409ACA1A212768B0006480B4 /* AddSongController.swift in Sources */,
 				409ACA1D212856DC006480B4 /* Music_Assistant.xcdatamodeld in Sources */,
+				40F00A74213043A0003F881C /* ViewSongController.swift in Sources */,
 				409AC9FD21273606006480B4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

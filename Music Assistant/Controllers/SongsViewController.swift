@@ -13,15 +13,12 @@ class SongsViewController: UITableViewController, SongAddedDelegate{
 
     var songArray = [Song]()
     var artistArray = [Artist]()
-    var isSearch = false
-    var searchTerms = ""
-    var songsForSection = [Song]()
     
     var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadArtists()
+        loadData()
     }
 
     // MARK: - Table view data source
@@ -37,9 +34,15 @@ class SongsViewController: UITableViewController, SongAddedDelegate{
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        determineRows(section: section)
+        var songs = [Song]()
         
-        return songsForSection.count
+        for song in songArray{
+            if song.parentArtist == artistArray[section]{
+                songs.append(song)
+            }
+        }
+        
+        return songs.count
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -56,9 +59,17 @@ class SongsViewController: UITableViewController, SongAddedDelegate{
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "songCell", for: indexPath)
+
+        var songs = [Song]()
         
-        let song = songsForSection[indexPath.row]
+        for song in songArray{
+            if song.parentArtist == artistArray[indexPath.section]{
+                songs.append(song)
+            }
+        }
         
+        let song = songs[indexPath.row]
+
         cell.textLabel?.text = song.title
         cell.textLabel?.font = UIFont(name: "Avenir Next", size: 24)
         tableView.tableFooterView = UIView()
@@ -67,76 +78,71 @@ class SongsViewController: UITableViewController, SongAddedDelegate{
         return cell
     }
     
+    // Tableview delegate methods
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "goToSong", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        let destinationVc = segue.destination as! ViewSongController
+        
+        if let indexPath = tableView.indexPathForSelectedRow {
+            destinationVc.selectedSong = songArray[indexPath.row]
+        }
+    }
     
     //MARK: Load data to populate tableview
-    
-    func loadArtists(with request : NSFetchRequest<Artist> = Artist.fetchRequest(), search: String = ""){
+    //loads artists and songs from database
+    func loadData(search: String = ""){
         
-        if search != "" {
+        //checks if method was triggered by search or viewDidLoad()
+        let requestSongs : NSFetchRequest<Song> = Song.fetchRequest()
+        requestSongs.sortDescriptors = [NSSortDescriptor(key: "parentArtist.name", ascending: true)]
+        let requestArtists : NSFetchRequest<Artist> = Artist.fetchRequest()
+        requestArtists.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+        
+        if search != ""{
+            let songPredicate = NSPredicate(format: "title CONTAINS[cd] %@", search)
+            requestSongs.predicate = songPredicate
             
-            var foundSongsArray = [Song]()
-            let request : NSFetchRequest<Song> = Song.fetchRequest()
-            let searchPredicate = NSPredicate(format: "title CONTAINS[cd] %@", search)
-            request.predicate = searchPredicate
-            request.sortDescriptors = [NSSortDescriptor(key: "parentArtist.name", ascending: true)]
-            
-            do {
-                foundSongsArray = try context.fetch(request)
+            do{
+                songArray = try context.fetch(requestSongs)
             } catch {
                 print("Error fetching data from context \(error)")
             }
             
             artistArray.removeAll()
             
-            for song in foundSongsArray {
+            for song in songArray{
                 artistArray.append(song.parentArtist!)
             }
             
-        } else {
+            artistArray = Array(Set(artistArray))
             
-            do {
-                request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
-                artistArray = try context.fetch(request)
+            artistArray = artistArray.sorted { $0.name! < $1.name!}
+            
+        } else {
+            do{
+                songArray = try context.fetch(requestSongs)
             } catch {
                 print("Error fetching data from context \(error)")
             }
             
+            do{
+                artistArray = try context.fetch(requestArtists)
+            } catch {
+                print("Error fetching data from context \(error)")
+            }
         }
         
+        
+        tableView.reloadData()
     }
     
-    func determineRows(section: Int){
-        let currentArtist = artistArray[section].name
-        let request : NSFetchRequest<Song> = Song.fetchRequest()
-        let predicate = NSPredicate(format: "parentArtist.name MATCHES %@", currentArtist!)
-        
-        request.predicate = predicate
-        
-        do {
-            songsForSection = try context.fetch(request)
-        } catch {
-            print("Error fetching data from context \(error)")
-        }
-    }
-    
-    func loadSongs(with request : NSFetchRequest<Song> = Song.fetchRequest(), artist : String = "", predicate: NSPredicate) -> [Song]{
-        
-        
-        return songArray
-    }
-    
-    func reloadTableView(){
-        self.loadArtists()
-        self.tableView.reloadData()
-    }
-    
-    //MARK: Segue related section
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "gotoAddSong" {
-            let destinationVC = segue.destination as! AddSongController
-            destinationVC.delegate = self
-        }
+    func reloadTableView() {
+        loadData()
+        tableView.reloadData()
     }
     
 
@@ -145,18 +151,10 @@ class SongsViewController: UITableViewController, SongAddedDelegate{
 //MARK: Search Bar Methods
 extension SongsViewController: UISearchBarDelegate {
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
-        loadArtists(search: searchBar.text!)
-        self.tableView.reloadData()
-        
-    }
-    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        loadArtists(search: searchBar.text!)
-        searchTerms = searchBar.text!
-        isSearch = true
-        self.tableView.reloadData()
+
+        loadData(search: searchBar.text!)
+
     }
     
 }

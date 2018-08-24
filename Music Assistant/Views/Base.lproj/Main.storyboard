@@ -66,10 +66,95 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="bcS-pS-tiq" kind="show" identifier="goToSong" id="TVF-w0-b8S"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8sh-cq-yix" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="948" y="-535"/>
+        </scene>
+        <!--View Song Controller-->
+        <scene sceneID="pcd-g9-nk6">
+            <objects>
+                <viewController id="bcS-pS-tiq" customClass="ViewSongController" customModule="Music_Assistant" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="16O-Mb-A7s">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="c4Q-AB-iwX">
+                                <rect key="frame" x="20" y="194" width="728" height="768"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cU7-5q-2gh">
+                                <rect key="frame" x="0.0" y="64" width="768" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="cg6-eu-wkb"/>
+                                </constraints>
+                                <items/>
+                                <color key="barTintColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </toolbar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X35-9Y-IBk">
+                                <rect key="frame" x="0.0" y="980" width="768" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="768" id="KDn-RI-5Fg"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem title="Item" id="ZkA-qY-xPu"/>
+                                </items>
+                                <color key="barTintColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="db0-6c-xC9">
+                                <rect key="frame" x="341.5" y="133" width="86.5" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="bYR-D2-m2y"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <size key="shadowOffset" width="2" height="1"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iId-jo-0rt">
+                                <rect key="frame" x="358" y="169" width="52" height="17"/>
+                                <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="cU7-5q-2gh" firstAttribute="top" secondItem="tO9-hl-V00" secondAttribute="top" id="2Te-og-fg7"/>
+                            <constraint firstItem="iId-jo-0rt" firstAttribute="top" secondItem="db0-6c-xC9" secondAttribute="bottom" constant="8" id="3OV-Ba-5Yz"/>
+                            <constraint firstItem="X35-9Y-IBk" firstAttribute="leading" secondItem="tO9-hl-V00" secondAttribute="leading" id="BBc-g3-Rtw"/>
+                            <constraint firstItem="tO9-hl-V00" firstAttribute="trailing" secondItem="c4Q-AB-iwX" secondAttribute="trailing" constant="20" id="BFF-Vj-SSw"/>
+                            <constraint firstItem="db0-6c-xC9" firstAttribute="top" secondItem="cU7-5q-2gh" secondAttribute="bottom" constant="25" id="Ht6-gq-dd2"/>
+                            <constraint firstItem="X35-9Y-IBk" firstAttribute="trailing" secondItem="tO9-hl-V00" secondAttribute="trailing" id="L2S-wt-kX0"/>
+                            <constraint firstItem="X35-9Y-IBk" firstAttribute="bottom" secondItem="tO9-hl-V00" secondAttribute="bottom" id="ORp-ct-IeL"/>
+                            <constraint firstItem="c4Q-AB-iwX" firstAttribute="top" secondItem="iId-jo-0rt" secondAttribute="bottom" constant="8" id="QeN-00-i6J"/>
+                            <constraint firstItem="cU7-5q-2gh" firstAttribute="leading" secondItem="tO9-hl-V00" secondAttribute="leading" id="Rz9-X2-Jpa"/>
+                            <constraint firstItem="iId-jo-0rt" firstAttribute="centerX" secondItem="16O-Mb-A7s" secondAttribute="centerX" id="bF8-zh-A8c"/>
+                            <constraint firstItem="X35-9Y-IBk" firstAttribute="top" secondItem="c4Q-AB-iwX" secondAttribute="bottom" constant="18" id="bRW-99-wa4"/>
+                            <constraint firstItem="cU7-5q-2gh" firstAttribute="trailing" secondItem="tO9-hl-V00" secondAttribute="trailing" id="e3d-yk-GQx"/>
+                            <constraint firstItem="c4Q-AB-iwX" firstAttribute="leading" secondItem="tO9-hl-V00" secondAttribute="leading" constant="20" id="eUE-Dh-TJU"/>
+                            <constraint firstItem="c4Q-AB-iwX" firstAttribute="top" secondItem="iId-jo-0rt" secondAttribute="bottom" constant="8" id="osK-wX-dPx"/>
+                            <constraint firstItem="c4Q-AB-iwX" firstAttribute="centerX" secondItem="16O-Mb-A7s" secondAttribute="centerX" id="rtC-Qk-Rfs"/>
+                            <constraint firstItem="db0-6c-xC9" firstAttribute="centerX" secondItem="16O-Mb-A7s" secondAttribute="centerX" id="wGi-yd-4kj"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="tO9-hl-V00"/>
+                    </view>
+                    <connections>
+                        <outlet property="artistLabel" destination="iId-jo-0rt" id="zw4-ok-dfR"/>
+                        <outlet property="lyricsTextView" destination="c4Q-AB-iwX" id="nYp-s1-aZP"/>
+                        <outlet property="titleLabel" destination="db0-6c-xC9" id="1wV-1R-hd9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VoK-A5-GVL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1687.5" y="-213.28125"/>
         </scene>
         <!--Add Song Controller-->
         <scene sceneID="RGn-ck-Z4V">
@@ -153,7 +238,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iI0-SW-wtb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1654.6875" y="-536.1328125"/>
+            <point key="canvasLocation" x="1690" y="-960"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="oOY-NA-2yZ">
